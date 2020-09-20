@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Bubble/src/main/java"/>
+	<classpathentry kind="src" path="CallbackPattern/src/main/java"/>
+	<classpathentry kind="src" path="Enumerations/src/main/java"/>
+	<classpathentry kind="src" path="InnerClasses/src/main/java"/>
+	<classpathentry kind="src" path="Lambdas/src/main/java"/>
+	<classpathentry kind="src" path="Polymorphism/src/main/java"/>
+	<classpathentry kind="src" path="Properties/src/main/java"/>
+	<classpathentry kind="src" path="Reflection/src/main/java"/>
+	<classpathentry kind="src" path="Restaurant/src/main/java"/>
+	<classpathentry kind="src" path="Streams/src/main/java"/>
+	<classpathentry kind="lib" path="gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="output" path="Bubble/build/classes/java/main"/>
+</classpath>
