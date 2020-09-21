@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 // Francesc Nohales
+@SuppressWarnings("deprecation")
 @ComponentScan(basePackages = {"springBootInitialDemo"})
 @Configuration
 @EnableWebMvc
