@@ -22,6 +22,10 @@ public class EmployeeController {
 		return employeeServiceImpl.listEmployees();
 	}
 	
+	@GetMapping("/prueba")
+	public String prueba(){
+		return "HELLO";
+	}
 	
 
 }

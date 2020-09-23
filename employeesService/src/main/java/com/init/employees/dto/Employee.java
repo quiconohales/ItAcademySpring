@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,32 +25,38 @@ public class Employee {
 	@Column(name="name")
 	private String name;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name="job_id")
-	private List<Job> job;
+	private Job job;
 	
 	@Column(name="salary")
 	private Long salary;
-
 	
-	public Employee(Long id, String name, List<Job> job, Long salary) {
-		//super();
-		this.id = id;
-		this.name = name;
-		//this.job = job;
-		this.salary = salary;
+	//	contructores
+	public Employee() {
+		
 	}
 	
+	
+	public Employee(Long id, String name, Job job, Long salary) {
+		//per();
+		this.id = id;
+		this.name = name;
+		this.job = job;
+		this.salary = salary;
+	}
+
 	//Metodo impresion de datos por consola
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", job=" + job + ", salary=" + salary + "]";
 	}
 
-	//contructores
 	public Long getId() {
 		return id;
 	}
+
+	
 
 	public void setId(Long id) {
 		this.id = id;
@@ -63,11 +70,11 @@ public class Employee {
 		this.name = name;
 	}
 
-	public List<Job> getJob() {
+	public Job getJob() {
 		return job;
 	}
 
-	public void setJob(List<Job> job) {
+	public void setJob(Job job) {
 		this.job = job;
 	}
 
@@ -78,6 +85,9 @@ public class Employee {
 	public void setSalary(Long salary) {
 		this.salary = salary;
 	}
+
+	
+
 
 	
 	
