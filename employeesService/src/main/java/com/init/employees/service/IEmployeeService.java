@@ -10,9 +10,9 @@ public interface IEmployeeService {
 	public List<Employee> listEmployees();
 	public Employee saveEmployee(Employee employee);	//Guarda un empleado CREATE
 	
-	public Employee employeeXID(Long id); //Leer datos de un empleado READ
+	public Employee employeeXID(Integer id); //Leer datos de un empleado READ
 	
 	public Employee updateEmployee(Employee employee); //Actualiza datos del empleado UPDATE
 	
-	public void deleteEmployee(Long id);// Elimina el empleado DELETE
+	public void deleteEmployee(Integer id);// Elimina el empleado DELETE
 }

@@ -2,9 +2,12 @@ package com.init.employees.dto;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,78 +16,67 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Required;
 
-//import com.init.employees.dto.Employee.Jobs; 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.init.employees.dto.Employee.job; 
 @Entity
 @Table(name="employee")
+
 public class Employee {
 	@Id
+	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
-	//public enum Jobs {JEFE,JEFECILLO,MATAO}
-	private Long id;
+	private Integer id;
+	
 	@Column(name="name")
 	private String name;
 	
-	@ManyToOne
+	@ManyToOne//   (optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name="job_id")
 	private Job job;
-	
-	@Column(name="salary")
-	private Long salary;
-	
-	//	contructores
+///////////////////////////////////////////////////////////////////////////
+	 @Column(name="status", nullable = false, length = 8 )
+	    @Enumerated(value = EnumType.STRING)
+	    private Status status;
+//////////////////////////////////////////////////////////////////////////	 
+	//contructores
 	public Employee() {
-		
-	}
-	
-	
-	public Employee(Long id, String name, Job job, Long salary) {
+		}
+
+	public Employee(Integer id, String name, Job job) {
 		//per();
 		this.id = id;
 		this.name = name;
 		this.job = job;
-		this.salary = salary;
 	}
 
 	//Metodo impresion de datos por consola
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", job=" + job + ", salary=" + salary + "]";
+		return "Employee [id=" + id + ", name=" + name + ", job=" + job +  "]";
 	}
-
-	public Long getId() {
+	// Setter y getters
+	public Integer getId() {
 		return id;
 	}
-
-	
-
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public Job getJob() {
 		return job;
 	}
-
+	
 	public void setJob(Job job) {
 		this.job = job;
 	}
 
-	public Long getSalary() {
-		return salary;
-	}
-
-	public void setSalary(Long salary) {
-		this.salary = salary;
-	}
 
 	
 

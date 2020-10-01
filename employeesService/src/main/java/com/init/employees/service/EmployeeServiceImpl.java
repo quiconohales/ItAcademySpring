@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.init.employees.dao.IEmployeeDAO;
 import com.init.employees.dto.Employee;
@@ -22,13 +23,12 @@ public class EmployeeServiceImpl implements IEmployeeService{
 	}
 
 	@Override
-	public Employee saveEmployee(Employee employee) {
-		// TODO Auto-generated method stub
+	public Employee saveEmployee(@RequestBody Employee employee) {
 		return iemployeeDAO.save(employee);
 	}
 
 	@Override
-	public Employee employeeXID(Long id) {
+	public Employee employeeXID(Integer id) {
 		// TODO Auto-generated method stub
 		return iemployeeDAO.findById(id).get();
 	}
@@ -40,7 +40,7 @@ public class EmployeeServiceImpl implements IEmployeeService{
 	}
 
 	@Override
-	public void deleteEmployee(Long id) {
+	public void deleteEmployee(Integer id) {
 		// TODO Auto-generated method stub
 		iemployeeDAO.deleteById(id);
 		

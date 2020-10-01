@@ -8,10 +8,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 
 
 @Entity
@@ -20,15 +24,18 @@ import javax.persistence.Entity;
 public class Job {
 	
 	@Id
+	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//
-	private Long id;
+	private Integer id;
+	
 	@Column (name="position")
 	private String position;
-	@Column (name="salary")
-	private Long salary;
 	
-	@OneToMany
-	@JoinColumn(name="id")
+	@Column (name="salary")
+	private Integer salary;
+	
+	@OneToMany(mappedBy="job")// añadido el mapped
+	//@JoinColumn(name="id")
 	private List<Employee> employee;
 
 	
@@ -37,22 +44,22 @@ public class Job {
 		return "Job [id=" + id + ", position=" + position + ", salary=" + salary + ", employee=" + employee + "]";
 	}
 	// Constructores (tambien el vacio))
-	public Job(Long id, String position, Long salary, List<Employee> employee) {
+	public Job(Integer id, String position, Integer salary, List<Employee> employee) {
 		super();
 		this.id = id;
 		this.position = position;
 		this.salary = salary;
-		this.employee = employee;
+		
 	}
 	public Job() {
 		
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -64,22 +71,20 @@ public class Job {
 		this.position = position;
 	}
 
-	public Long getSalary() {
+	public Integer getSalary() {
 		return salary;
 	}
 
-	public void setSalary(Long salary) {
+	public void setSalary(Integer salary) {
 		this.salary = salary;
 	}
-
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Employee")
 	public List<Employee> getEmployee() {
 		return employee;
 	}
 
-	public void setEmployee(List<Employee> employee) {
-		this.employee = employee;
-	}
-	
+
 	
 }
 
