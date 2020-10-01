@@ -2,6 +2,8 @@ package com.init.employees.service;
 
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder.Case;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +26,14 @@ public class EmployeeServiceImpl implements IEmployeeService{
 
 	@Override
 	public Employee saveEmployee(@RequestBody Employee employee) {
+		switch(employee.getJobenum().ordinal()) {
+		case 1:
+			employee.setSalary(3000);
+		case 2:
+			employee.setSalary(1000);
+		}
+		
+		
 		return iemployeeDAO.save(employee);
 	}
 
@@ -34,8 +44,14 @@ public class EmployeeServiceImpl implements IEmployeeService{
 	}
 
 	@Override
-	public Employee updateEmployee(Employee employee) {
-		// TODO Auto-generated method stub
+	public Employee updateEmployee(@RequestBody Employee employee) {
+		
+		switch(employee.getJobenum().ordinal()) {
+		case 1:
+			employee.setSalary(3000);
+		case 2:
+			employee.setSalary(1000);
+		}
 		return iemployeeDAO.save(employee);
 	}
 

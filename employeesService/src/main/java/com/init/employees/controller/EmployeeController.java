@@ -20,57 +20,58 @@ import com.init.employees.dto.Employee;
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
-	
+
 	@Autowired
 	EmployeeServiceImpl employeeServiceImpl;
-	
+
 	@GetMapping("/prueba")
-	public String prueba(){
+	public String prueba() {
 		return "HELLO.";
 	}
-	
+
 	// CRUD
-	// Create OK
+	// Create   /grabar
 	@PostMapping("/grabar")
-	public Employee saveEmployee(@RequestBody Employee employee){///////////////////////A Q U I
-		System.out.println("DDDDDDDDDDDD");
+	public Employee saveEmployee(@RequestBody Employee employee) {
 		return employeeServiceImpl.saveEmployee(employee);
 	}
-	// Read OK ********************** Con ResponseEntity
+
+	// Read     /listar
 	@GetMapping("/listar")
-	public ResponseEntity <List<Employee>> listemployees(){
+	public ResponseEntity<List<Employee>> listemployees() {
 		return ResponseEntity.ok(employeeServiceImpl.listEmployees());
-		
+
 	}
 
-	// Read by id OK
+	// Read by id  /buscar/{id}
 	@GetMapping("/buscar/{id}")
-	public Employee employeeXID(@PathVariable(name="id")Integer id){
-		Employee employee_xid=new Employee();
-		employee_xid=employeeServiceImpl.employeeXID(id);
-		System.out.println("Employee XID; "+employee_xid);
+	public Employee employeeXID(@PathVariable(name = "id") Integer id) {
+		Employee employee_xid = new Employee();
+		employee_xid = employeeServiceImpl.employeeXID(id);
+		System.out.println("Employee XID; " + employee_xid);
 		return employee_xid;
 	}
-	
-	// Update OK
+
+	// Update 	/update/{id}
 	@PutMapping("/update/{id}")
-	public Employee updateEmployee(@PathVariable(name="id")Integer id,@RequestBody Employee employee) {
-		
-		Employee employee_select=new Employee();
-		Employee employee_update=new Employee();
-		employee_select=employeeServiceImpl.employeeXID(id);
-		
+	public Employee updateEmployee(@PathVariable(name = "id") Integer id, @RequestBody Employee employee) {
+
+		Employee employee_select = new Employee();
+		Employee employee_update = new Employee();
+		employee_select = employeeServiceImpl.employeeXID(id);
+
 		employee_select.setName(employee.getName());
-		
-		employee_update=employeeServiceImpl.updateEmployee(employee_select);
+		employee_select.setJobenum(employee.getJobenum());
+		employee_select.setSalary(employee.getSalary());
+
+		employee_update = employeeServiceImpl.updateEmployee(employee_select);
+
 		return employee_update;
 	}
-	
-	//Delete OK
+
+	// Delete 	/employee/{id}
 	@DeleteMapping("/employee/{id}")
-	public void deleteEmployee(@PathVariable(name="id")Integer id) {
+	public void deleteEmployee(@PathVariable(name = "id") Integer id) {
 		employeeServiceImpl.deleteEmployee(id);
 	}
 }
-
-

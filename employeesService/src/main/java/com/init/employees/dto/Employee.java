@@ -1,89 +1,84 @@
 package com.init.employees.dto;
 
-import java.util.List;
 
-import javax.persistence.CascadeType;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 
-import org.springframework.beans.factory.annotation.Required;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-//import com.init.employees.dto.Employee.job; 
+
 @Entity
-@Table(name="employee")
+@Table(name = "employee")
 
 public class Employee {
+	  //Campos de la clase
 	@Id
-	@Column(name="id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // busca ultimo valor e incrementa desde id final de db
 	private Integer id;
-	
-	@Column(name="name")
-	private String name;
-	
-	@ManyToOne//   (optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name="job_id")
-	private Job job;
-///////////////////////////////////////////////////////////////////////////
-	 @Column(name="status", nullable = false, length = 8 )
-	    @Enumerated(value = EnumType.STRING)
-	    private Status status;
-//////////////////////////////////////////////////////////////////////////	 
-	//contructores
-	public Employee() {
-		}
 
-	public Employee(Integer id, String name, Job job) {
-		//per();
-		this.id = id;
-		this.name = name;
-		this.job = job;
+	@Column(name = "name")
+	private String name;
+
+	@Column(name = "position", nullable = false, length = 10)
+	@Enumerated(value = EnumType.STRING)
+	private JobEnum jobenum;
+
+	@Column(name = "salary")
+	private Integer salary;
+
+	 /**
+     * Constructor para la clase employee
+     * @param 
+     */
+	public Employee() {
 	}
 
-	//Metodo impresion de datos por consola
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", job=" + job +  "]";
+		return "Employee [id=" + id + ", name=" + name + ", jobenum=" + jobenum + ", salary=" + salary + "]";
 	}
-	// Setter y getters
+
+	// Getter y setters
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Job getJob() {
-		return job;
-	}
-	
-	public void setJob(Job job) {
-		this.job = job;
+
+	public JobEnum getJobenum() {
+		return jobenum;
 	}
 
+	public void setJobenum(JobEnum jobenum) {
+		this.jobenum = jobenum;
+	}
 
-	
+	public Integer getSalary() {
+		return salary;
+	}
 
+	public void setSalary(Integer salary) {
+		this.salary = salary;
+	}
 
-	
-	
-	
-	
-	
 }
