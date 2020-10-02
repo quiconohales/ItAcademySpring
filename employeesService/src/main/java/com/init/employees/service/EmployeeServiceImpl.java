@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.init.employees.dao.IEmployeeDAO;
 import com.init.employees.dto.Employee;
+import com.init.employees.dto.JobEnum;
 
 @Service
 public class EmployeeServiceImpl implements IEmployeeService{
@@ -42,7 +43,12 @@ public class EmployeeServiceImpl implements IEmployeeService{
 		// TODO Auto-generated method stub
 		return iemployeeDAO.findById(id).get();
 	}
-
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	@Override
+	public Employee employeeXPOSITION(JobEnum jobenum) {
+		// TODO Auto-generated method stub
+		return iemployeeDAO.findById(jobenum).   findById(jobenum).get();
+	}
 	@Override
 	public Employee updateEmployee(@RequestBody Employee employee) {
 		

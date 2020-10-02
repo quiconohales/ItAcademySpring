@@ -3,7 +3,6 @@ package com.init.employees.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -46,6 +45,14 @@ public class EmployeeController {
 	// Read by id  /buscar/{id}
 	@GetMapping("/buscar/{id}")
 	public Employee employeeXID(@PathVariable(name = "id") Integer id) {
+		Employee employee_xid = new Employee();
+		employee_xid = employeeServiceImpl.employeeXID(id);
+		System.out.println("Employee XID; " + employee_xid);
+		return employee_xid;
+	}
+	// Read by JOB  /buscar/{id} /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	@GetMapping("/buscar/job/{id}")
+	public Employee employeeXPOSITION(@PathVariable(name = "id") Integer id) {
 		Employee employee_xid = new Employee();
 		employee_xid = employeeServiceImpl.employeeXID(id);
 		System.out.println("Employee XID; " + employee_xid);
