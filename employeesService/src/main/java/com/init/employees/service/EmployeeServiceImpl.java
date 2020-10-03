@@ -1,5 +1,6 @@
 package com.init.employees.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder.Case;
@@ -41,14 +42,48 @@ public class EmployeeServiceImpl implements IEmployeeService{
 	@Override
 	public Employee employeeXID(Integer id) {
 		// TODO Auto-generated method stub
+		//return iemployeeDAO.findById(id).get();
 		return iemployeeDAO.findById(id).get();
 	}
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ************************************************************************************************************************
 	@Override
-	public Employee employeeXPOSITION(JobEnum jobenum) {
-		// TODO Auto-generated method stub
-		return iemployeeDAO.findById(jobenum).   findById(jobenum).get();
+	public ArrayList<Employee> employeePOSITIONALL() {
+		
+		//List<Employee> listeployee=(List<Employee>)iemployeeDAO.findAll();
+		return (ArrayList<Employee>) iemployeeDAO.findAll();
 	}
+	
+	@Override
+	public List<Employee> employeeXPOSITION(List<Integer> id) {
+		//Iterable<Employee> Itemployee;
+		List<Employee> listeployee=(List<Employee>)iemployeeDAO.findAllById(id);
+		return listeployee;
+	
+//		@Transactional(readOnly = true)
+//		public List<Student> getAllStudents(List<Integer> ids) {
+//			List<Student> studentResponse = (List<Student>) studentRepository.findAllById(ids);
+//			return studentResponse;
+//		}
+	
+	
+	
+	
+	
+	
+	
+	}
+		
+	
+//***************************************************************************************************************************
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public Employee updateEmployee(@RequestBody Employee employee) {
 		
