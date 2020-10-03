@@ -18,7 +18,7 @@ public class Employee {
 	// Campos de la clase
 	@Id
 	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // busca ultimo valor e incrementa desde id final de db
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer id;
 
 	@Column(name = "name")
@@ -33,10 +33,21 @@ public class Employee {
 
 	/**
 	 * Constructor para la clase employee
-	 * 
-	 * @param
+	 * @param id
+	 * @param name
+	 * @param position
+	 * @param salary
 	 */
+	
 	public Employee() {
+	}
+
+	public Employee(Integer id, String name, JobEnum jobenum, Integer salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.jobenum = jobenum;
+		this.salary = salary;
 	}
 
 	@Override
@@ -44,7 +55,18 @@ public class Employee {
 		return "Employee [id=" + id + ", name=" + name + ", jobenum=" + jobenum + ", salary=" + salary + "]";
 	}
 
-	// Getter y setters
+	/**Getters 
+	 * @return id
+	 * @return Name
+	 * @return Jobenum
+	 * @return Salary
+	 */
+	/**Setters
+	 * @return id
+	 * @return Name
+	 * @return Jobenum
+	 * @return Salary
+	 */
 	public Integer getId() {
 		return id;
 	}

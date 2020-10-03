@@ -6,14 +6,19 @@ public enum JobEnum {
 
 	private int salary;
 
-	// Añadir un constructor
+	//  constructor
 	JobEnum(int s) {
 		salary = s;
 	}
 
-	// Añadir un método
+	// Metodo Get
 	int getSalary() {
 		return salary;
 	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+	
 
 }
