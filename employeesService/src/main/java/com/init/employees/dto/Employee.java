@@ -1,8 +1,5 @@
 package com.init.employees.dto;
 
-
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -14,13 +11,11 @@ import javax.persistence.Id;
 
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name = "employee")
 
 public class Employee {
-	  //Campos de la clase
+	// Campos de la clase
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // busca ultimo valor e incrementa desde id final de db
@@ -36,10 +31,11 @@ public class Employee {
 	@Column(name = "salary")
 	private Integer salary;
 
-	 /**
-     * Constructor para la clase employee
-     * @param 
-     */
+	/**
+	 * Constructor para la clase employee
+	 * 
+	 * @param
+	 */
 	public Employee() {
 	}
 
