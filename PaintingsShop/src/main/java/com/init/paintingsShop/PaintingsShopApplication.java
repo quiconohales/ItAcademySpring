@@ -1,13 +1,13 @@
-package com.init.botiga;
+package com.init.paintingsShop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BotigaCuadresApplication {
+public class PaintingsShopApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BotigaCuadresApplication.class, args);
+		SpringApplication.run(PaintingsShopApplication.class, args);
 	}
 
 }

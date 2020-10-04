@@ -8,10 +8,10 @@
 		<version>2.3.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>init.botiga</groupId>
-	<artifactId>BotigaCuadres</artifactId>
+	<groupId>init.paintingsShop</groupId>
+	<artifactId>PaintingsShop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>BotigaCuadres</name>
+	<name>PaintingsShop</name>
 	<description>Exercici M13 It Academy Francesc Nohales</description>
 
 	<properties>
