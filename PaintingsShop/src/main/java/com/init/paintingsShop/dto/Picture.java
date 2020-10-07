@@ -1,6 +1,6 @@
 package com.init.paintingsShop.dto;
 
-import java.util.Calendar;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -35,30 +35,21 @@ public class Picture {
     //private Calendar registDate;
 	 private Date registDate;
 	
-	@ManyToOne
-	@JoinColumn(name="shop_id")
-	private Shop shop;
+	//@ManyToOne()
+	//@JoinColumn(name="shopid")
+	//private Shop shop;
 	
 	// Contructores 
 	public Picture() {
 	}
 
 	public Picture(Integer id, String name, Integer price, Date registDate, Shop shop) {
-		
+		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.registDate = registDate;
-		this.shop = shop;
-	}
-	//  Getters & setters
-	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
+		//this.shop = shop;
 	}
 
 	public String getName() {
@@ -85,14 +76,20 @@ public class Picture {
 		this.registDate = registDate;
 	}
 
-	public Shop getShop() {
-		return shop;
-	}
+//	public Shop getShop() {
+//		return shop;
+//	}
+//
+//	public void setShop(Shop shop) {
+//		this.shop = shop;
+//	}
 
-	public void setShop(Shop shop) {
-		this.shop = shop;
+	public Integer getId() {
+		return id;
 	}
 	
+	
+
 
 
 

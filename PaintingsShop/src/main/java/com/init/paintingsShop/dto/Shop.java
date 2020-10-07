@@ -2,6 +2,7 @@ package com.init.paintingsShop.dto;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="shop")
@@ -27,16 +30,13 @@ public class Shop {
 	@Column(name="capacity")
 	private Integer capacity;
 	
-	@OneToMany
-	@JoinColumn(name="id")
+	@OneToMany(cascade= CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name="shop_id")
 	private List<Picture> picture;
+	//@Column @JsonIgnore
 
 	public Integer getId() {
 		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -65,7 +65,7 @@ public class Shop {
 
 	@Override
 	public String toString() {
-		return "Shop [id=" + id + ", name=" + name + ", capacity=" + capacity + ", picture=" + picture + "]";
+		return "Shop [id=" + id + ", name=" + name + ", capacity=" + capacity + ", picture="+ picture  + "]";
 	}
 
 	public Shop(Integer id, String name, Integer capacity, List<Picture> picture) {
