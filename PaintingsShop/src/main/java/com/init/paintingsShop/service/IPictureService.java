@@ -10,5 +10,6 @@ public interface IPictureService {
 	public List<Picture> listPictures();
 	public void deletePicture(Picture picture);
 	public List<Picture> listPicturesbyShop(Integer shop_id);
+	//public Picture savePictureShop(Integer shop_id,Picture picture);
 
 }

@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="shop")
-
 public class Shop {
 	
 	@Id
@@ -30,9 +29,11 @@ public class Shop {
 	@Column(name="capacity")
 	private Integer capacity;
 	
-	@OneToMany(cascade= CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name="shop_id")
+	@OneToMany(mappedBy="picture",cascade= CascadeType.ALL, orphanRemoval = true)
+	//@JoinColumn(name="shop_id")
 	private List<Picture> picture;
+	
+	
 	//@Column @JsonIgnore
 
 	public Integer getId() {

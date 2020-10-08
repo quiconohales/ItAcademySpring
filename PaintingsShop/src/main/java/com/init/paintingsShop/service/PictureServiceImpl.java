@@ -20,7 +20,11 @@ public class PictureServiceImpl implements IPictureService {
 	
 		return ipictureDAO.save(picture);
 	}
-
+//	@Override
+//	public Picture savePictureShop(Integer shop_id,Picture picture) {
+//	
+//		return ipictureDAO.save(picture);
+//	}
 	@Override
 	public List<Picture> listPictures() {
 		return ipictureDAO.findAll();
@@ -34,8 +38,6 @@ public class PictureServiceImpl implements IPictureService {
 	}
 	@Override
 	public void deletePicture(Picture picture) {
-
-
 	}
 
 }

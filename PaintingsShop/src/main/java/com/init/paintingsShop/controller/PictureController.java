@@ -24,10 +24,11 @@ public class PictureController {
 	
 	//Crear Cuadro
 	//Afegir quadre: li donarem el nom del quadre i el del autor (POST /shops/{ID}/pictures)
-	@PostMapping ("/post/shops/{shopid}")//{shop_id}
-	public Picture savePicture (@PathVariable (value="shopid")Integer shopid,@Validated @RequestBody Picture picture) {
+	@PostMapping ("/post/shops/{shop_id}")//{shop_id}
+	public Picture savePicture (@PathVariable (value="shop_id")Integer shop_id,@Validated @RequestBody Picture picture) {
 	//public Picture savePicture (@RequestParam (value="shop_id")Integer shop_id,@Validated @RequestBody Picture picture) {
-		
+	//picture.getName();
+	//savePicture(shop_id, picture);
 		return pictureServiceImpl.savePicture(picture);
 	
 	

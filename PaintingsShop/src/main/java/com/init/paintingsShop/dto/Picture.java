@@ -34,18 +34,17 @@ public class Picture {
     @Temporal(TemporalType.DATE)
     //private Calendar registDate;
 	 private Date registDate;
-	
-	//@ManyToOne()
-	//@JoinColumn(name="shopid")
-	//private Shop shop;
+//	
+	@ManyToOne()
+	@JoinColumn(name="shop_id")
+	private Shop shop;
 	
 	// Contructores 
 	public Picture() {
 	}
 
-	public Picture(Integer id, String name, Integer price, Date registDate, Shop shop) {
+	public Picture(String name, Integer price, Date registDate, Shop shop) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.registDate = registDate;
@@ -87,8 +86,8 @@ public class Picture {
 	public Integer getId() {
 		return id;
 	}
-	
-	
+
+
 
 
 
