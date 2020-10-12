@@ -1,10 +1,12 @@
 package com.init.paintingsShop.dto;
 
-import java.util.Calendar;
+
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,67 +34,56 @@ public class Picture {
 	
 	@Column(name = "date", updatable = false, nullable = false)
     @Temporal(TemporalType.DATE)
-    //private Calendar registDate;
-	 private Date registDate;
+     private Date registDate;
 	
-	@ManyToOne
-	@JoinColumn(name="shop_id")
+	
+	@JoinColumn(name="FK_SHOP",nullable=false)
+	@ManyToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	private Shop shop;
+	
+
 	
 	// Contructores 
 	public Picture() {
 	}
 
+
 	public Picture(Integer id, String name, Integer price, Date registDate, Shop shop) {
-		
+		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.registDate = registDate;
 		this.shop = shop;
 	}
-	//  Getters & setters
-	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
+	// Getters & setters 
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public Integer getPrice() {
 		return price;
 	}
-
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
-
 	public Date getRegistDate() {
 		return registDate;
 	}
-
 	public void setRegistDate(Date registDate) {
 		this.registDate = registDate;
 	}
-
 	public Shop getShop() {
 		return shop;
 	}
-
 	public void setShop(Shop shop) {
 		this.shop = shop;
 	}
-	
+	public Integer getId() {
+		return id;
+	}
 
 
 
