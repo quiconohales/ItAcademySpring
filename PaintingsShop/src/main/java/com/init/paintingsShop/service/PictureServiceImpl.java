@@ -1,6 +1,6 @@
 package com.init.paintingsShop.service;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.init.paintingsShop.dao.IPictureDAO;
 import com.init.paintingsShop.dto.Picture;
+import com.init.paintingsShop.dto.Shop;
 
 @Service
 public class PictureServiceImpl implements IPictureService {
@@ -20,27 +21,38 @@ public class PictureServiceImpl implements IPictureService {
 	
 		return ipictureDAO.save(picture);
 	}
-//	@Override
-//	public Picture savePictureByshop(Integer shopid,Picture picture) {
-//	
-//		return ipictureDAO.save(picture,shopid);
-//	}
+
 
 	@Override
 	public List<Picture> listPictures() {
 		return ipictureDAO.findAll();
-		//return ipictureDAO.findAllById(Iterable<integer>,integer);	
-		//return null;
+		}
+	
+
+	@Override
+	public void deleteAllPictureByShop(Shop shop) {
 	}
 	
-	@Override
-	public List<Picture> listPicturesbyShop(Integer Shop_id){
-		return ipictureDAO.findAll();
+		@Override
+	public List<Picture> listPicturesbyShop(List<Picture> shop_id){
+		
+		//List <Picture> llista=(List <Picture>)ipictureDAO.findAllById(shop_id);
+		//return ipictureDAO.findAllById(Iterable<Picture>id)();
+				return null;
 	}
-	@Override
-	public void deletePicture(Picture picture) {
 
 
-	}
+		@Override
+		public void deletePicture(Picture picture) {
+			ipictureDAO.delete(picture);
+			
+		}
+	
+	//	@Transactional(readOnly = true)
+//	public List<Student> getAllStudents(List<Integer> ids) {
+//		List<Student> studentResponse = (List<Student>) studentRepository.findAllById(ids);
+//		return studentResponse;
+//	}
+//
 
 }

@@ -21,6 +21,11 @@ import javax.persistence.TemporalType;
 
 public class Picture {
 	
+	@Override
+	public String toString() {
+		return "Picture [id=" + id + ", name=" + name + ", painter=" + painter + ", price=" + price + ", registDate="
+				+ registDate + ", shop=" + shop + "]";
+	}
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
@@ -28,6 +33,9 @@ public class Picture {
 
 	@Column(name="name")
 	private String name;
+	
+	@Column(name="painter")
+	private String painter;
 	
 	@Column(name="price")
 	private Integer price;
@@ -38,7 +46,7 @@ public class Picture {
 	
 	
 	@JoinColumn(name="FK_SHOP",nullable=false)
-	@ManyToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	@ManyToOne(optional = false,cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
 	private Shop shop;
 	
 
@@ -48,10 +56,11 @@ public class Picture {
 	}
 
 
-	public Picture(Integer id, String name, Integer price, Date registDate, Shop shop) {
+	public Picture(Integer id, String name,String painter, Integer price, Date registDate, Shop shop) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.painter = painter;
 		this.price = price;
 		this.registDate = registDate;
 		this.shop = shop;
@@ -62,6 +71,13 @@ public class Picture {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getPainter() {
+		return painter;
+	}
+	public void setPainter(String painter) {
+		this.painter = painter;
 	}
 	public Integer getPrice() {
 		return price;

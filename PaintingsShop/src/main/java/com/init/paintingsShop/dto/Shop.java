@@ -19,6 +19,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Shop {
 	
+	@Override
+	public String toString() {
+		return "Shop [id=" + id + ", name=" + name + ", capacity=" + capacity + "]";
+	}
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
