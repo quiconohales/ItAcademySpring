@@ -9,7 +9,7 @@ import com.init.paintingsShop.dto.Picture;
 
 public interface IPictureDAO extends JpaRepository <Picture,Integer>{
 
-	//List<Picture> findAllById(List<Picture> shop_id);
+	
 
 	
 

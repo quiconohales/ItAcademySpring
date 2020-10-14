@@ -16,6 +16,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="picture")
 
@@ -44,8 +46,8 @@ public class Picture {
     @Temporal(TemporalType.DATE)
      private Date registDate;
 	
-	
-	@JoinColumn(name="FK_SHOP",nullable=false)
+	@JsonIgnore
+	@JoinColumn(name="fk_shop",nullable=false)
 	@ManyToOne(optional = false,cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
 	private Shop shop;
 	

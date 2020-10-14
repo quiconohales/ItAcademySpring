@@ -44,80 +44,28 @@ public class PictureController {
 	// Llistar els quadres de la botiga (GET /shops/{ID}/pictures).
 	
 	@GetMapping("/get/shops/{id}/pictures")
-	public List<Picture> listPicture(@PathVariable (value="id")Integer id){
-		
-		
-		
-		
-		
-		//  @Query("select c from picture c where c.shop = :id")
-		//  Customer findByEmail(String email);
-		  
-		
-		//return pictureServiceImpl.listPicturesbyShop(email);
-		return pictureServiceImpl.listPictures();
-	}
+	public List<Picture> listPicture(@PathVariable (value="id")Shop shopid){
+		List<Picture> lista = new ArrayList<>();
+		for (Picture picture:pictureServiceImpl.listPictures()) {
+			if (picture.getShop().equals(shopid)) {
+				//pictureServiceImpl.deletePicture(picture);
+				lista.add(picture);
+			}
+		}
+		return lista;
 	
+	}
 	
 	//Borrar tots els Cuadros de la botiga (DELETE /shops/{ID}/pictures).
 	
 	@DeleteMapping("/shops/{id}/pictures")
 	public void deletePicture(@PathVariable(name = "id") Shop shopid) {
-		//List<Picture> lista = new ArrayList<>();
-		//lista=pictureServiceImpl.listPictures();
-	//	List<Picture> listacoincidente = new ArrayList<>();
 		for (Picture picture:pictureServiceImpl.listPictures()) {
 			if (picture.getShop().equals(shopid)) {
 				pictureServiceImpl.deletePicture(picture);
 			}
 		}
-		
-//		
-//			@Query("select c from picture c where c.shop = :id");
-//			Customer findByEmail(String email);
-//		  
-//			 Query query = createQuery( "Select e " + "from Employee e " + "ORDER BY e.ename ASC" );
-//		      List<Employee> list=(List<Employee>)query.getResultList( );
-//		pictureServiceImpl.deleteAllPictureByShop(shopid);
+
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-/*	@GetMapping("/get/position/{enum}")
-//	public ResponseEntity<List<Employee>> employeePOSITIONALL(@PathVariable(name = "enum") Integer jobenum) {
-//	
-//		ArrayList<Employee> listemployee;
-//		ArrayList<Employee> employeePOSITION = new ArrayList();
-//
-//		listemployee = employeeServiceImpl.employeePOSITIONALL();
-//		for (int i = 0; i < listemployee.size(); i++) {
-//			// if (listemployee.get(i).getJobenum().name()==jobenum) {
-//			if (listemployee.get(i).getJobenum().ordinal() == jobenum) {
-//				employeePOSITION.add(listemployee.get(i));
-//			}
-//		}
-/////		El Siguiente codigo se comenta ya que no es necesario comprobar si hay registros ,con la respuesta standar es suficiente
-////		if (employeePOSITION.isEmpty()) {
-////			return new ResponseEntity<>(employeePOSITION,HttpStatus.I_AM_A_TEAPOT);//////   ;)
-////		}
-////		 else {
-////			 return new ResponseEntity<>(employeePOSITION,HttpStatus.OK);
-////		}
-//	
-//		return new ResponseEntity<>(employeePOSITION,HttpStatus.OK);
-//}
-*/
 }

@@ -59,22 +59,4 @@ public class Shop {
 	}
 	
 	
-	
-	
-	
-	//@OneToMany(cascade= CascadeType.ALL, orphanRemoval = true)
-	//@JoinColumn(name="shop_id")
-	//private List<Picture> picture;
-	//@Column @JsonIgnore
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

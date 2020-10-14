@@ -36,8 +36,7 @@ public class PictureServiceImpl implements IPictureService {
 		@Override
 	public List<Picture> listPicturesbyShop(List<Picture> shop_id){
 		
-		//List <Picture> llista=(List <Picture>)ipictureDAO.findAllById(shop_id);
-		//return ipictureDAO.findAllById(Iterable<Picture>id)();
+
 				return null;
 	}
 
@@ -48,11 +47,6 @@ public class PictureServiceImpl implements IPictureService {
 			
 		}
 	
-	//	@Transactional(readOnly = true)
-//	public List<Student> getAllStudents(List<Integer> ids) {
-//		List<Student> studentResponse = (List<Student>) studentRepository.findAllById(ids);
-//		return studentResponse;
-//	}
-//
+
 
 }
